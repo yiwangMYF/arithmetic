@@ -18,7 +18,6 @@ public class RecursionForPath {
     //目的地位置的j索引
     private int reachJ;
 
-
     public RecursionForPath(int rows, int cols, int reachI, int reachJ) {
         this.rows = rows;
         this.cols = cols;
