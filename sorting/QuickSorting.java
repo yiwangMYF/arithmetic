@@ -30,13 +30,15 @@ public class QuickSorting extends Sort{
     * @return
     */
     private void realSort(int start, int end) {
-        System.out.println("start:"+start+"--end:"+end);
+
         if (start>=end) {
             return;
         }
         int left=start;
         int right=end;
         int privot=this.eles[(left+right)/2];
+        System.out.println("left:"+left+" right:"+right);
+        System.out.println("a:"+Arrays.toString(this.eles));
         while (left<right){
             //找到左边大于等于参考值的位置
             while (this.eles[left]<privot) {
@@ -46,7 +48,7 @@ public class QuickSorting extends Sort{
                 right--;
             }
             //当左右指针相等时说明参考值两边已经区分好了，注：left<=(left+right)/2,right>=(left+right)/2
-            if (left==right) {
+            if (left>=right) {
                 break;
             }
             //进行值的交换
@@ -63,14 +65,26 @@ public class QuickSorting extends Sort{
             }
 
         }
-        System.out.println(">>>"+Arrays.toString(this.eles));
+        System.out.println(">>"+Arrays.toString(this.eles));
+        if (left==right) {
+            left++;
+            right--;
+        }
+
         //递归处理左右两边的排序
-        realSort(start,--right);
-        realSort(++left,end);
+        realSort(left,end);
+        realSort(start,right);
+
+
+
     }
 
     public static void main(String[] args) {
-        int[] a=new int[]{2,20,4,1,4,9,15,7,23,56,44};
+//        int[] a=new int[10];
+//        for (int i = 0; i < a.length; i++) {
+//            a[i]= (int) (Math.random()*100);
+//        }
+        int[] a=new int[]{45, 97, 92, 80, 74, 64, 72, 72, 31, 67};
         QuickSorting insertSorting = new QuickSorting(a);
         System.out.println("before:"+ Arrays.toString(insertSorting.eles));
         insertSorting.sort();
