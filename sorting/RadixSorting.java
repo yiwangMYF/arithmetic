@@ -17,6 +17,25 @@ import java.util.Arrays;
 public class RadixSorting extends Sort {
     public RadixSorting(int[] eles) {
         super(eles);
+        if (!check(eles)) {
+            throw new RuntimeException("非法参数，基数排序只支持非负整数序列的排序");
+        }
+    }
+
+    /**
+     * @Author myf
+     * @Description //TODO 校验是否支持该序列的排序
+     * @Date 2021/12/9 16:03
+     * @Param
+     * @return
+     */
+    private boolean check(int[] eles) {
+        for (int i = 0; i < eles.length; i++) {
+            if (eles[i]<0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
