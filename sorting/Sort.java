@@ -10,6 +10,14 @@ public abstract class  Sort {
     //存储排序的序列
     protected int[] eles;
 
+    public int[] getEles() {
+        return eles;
+    }
+
+    public void setEles(int[] eles) {
+        this.eles = eles;
+    }
+
     public  Sort(int[] eles) {
         this.eles = eles;
     }
